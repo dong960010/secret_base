@@ -140,8 +140,7 @@ export default {
         }
         if (router.meta && router.meta.title) {
           // generate internationalized title
-          const i18ntitle = i18n.t(`route.${router.meta.title}`)
-          data.title = [...data.title, i18ntitle]
+          data.title = [...data.title, router.meta.title]
           if (router.redirect !== 'noRedirect') {
             // only push the routes with title
             // special case: need to exclude parent router without redirect
@@ -161,6 +160,7 @@ export default {
     querySearch(query) {
       if (query !== '') {
         this.options = this.fuse.search(query)
+        console.log(this.fuse.search(query))
       } else {
         this.options = []
       }
