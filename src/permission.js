@@ -14,14 +14,13 @@ router.beforeEach(async(to, from, next) => {
   NProgress.start()
 
   // set page title
-  document.title = '临时工小东的秘密基地'
+  document.title = '临时工小東的秘密基地'
 
   // determine whether the user has logged in
   const hasToken = getToken()
 
   if (hasToken) {
     if (to.path === '/login') {
-      console.log(231)
       // if is logged in, redirect to the home page
       next({ path: '/' })
       NProgress.done()

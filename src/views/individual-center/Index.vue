@@ -42,9 +42,9 @@ export default {
   methods: {
     getUser() {
       this.user = {
-        name: this.name,
+        name: '東不成',
         role: this.roles.join(' | '),
-        email: 'admin@test.com',
+        email: 'dong_960010@163.com',
         avatar: this.avatar
       }
     }
