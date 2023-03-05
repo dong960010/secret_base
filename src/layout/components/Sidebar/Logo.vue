@@ -1,12 +1,8 @@
 <template>
   <div class="sidebar-logo-container" :class="{'collapse':collapse}">
     <transition name="sidebarLogoFade">
-      <router-link v-if="collapse" key="collapse" class="sidebar-logo-link" to="/">
-        <i class="snes-jp-logo" />
-      </router-link>
-      <router-link v-else key="expand" class="sidebar-logo-link" to="/">
-        <i class="snes-jp-logo" />
-        <h1 class="sidebar-title">{{ title }} </h1>
+      <router-link class="sidebar-logo-link" to="/">
+        <i :class="{'rotate': collapse}" class="snes-jp-logo" />
       </router-link>
     </transition>
   </div>
@@ -20,16 +16,21 @@ export default {
       type: Boolean,
       required: true
     }
-  },
-  data() {
-    return {
-      title: '临时工小東的秘密基地'
-    }
   }
 }
 </script>
 
 <style lang="scss" scoped>
+
+.snes-jp-logo {
+  width: 60px;
+  height: 54px;
+  transform: scale(2);
+  transition: all .3s;
+  &.rotate {
+  transform: rotate(-90deg) scale(1) !important;
+}
+}
 .sidebarLogoFade-enter-active {
   transition: opacity 1.5s;
 }
@@ -63,16 +64,6 @@ export default {
       margin-right: 12px;
     }
 
-    & .sidebar-title {
-      display: inline-block;
-      margin: 0;
-      color: #fff;
-      font-weight: 600;
-      line-height: 50px;
-      font-size: 14px;
-      font-family: Avenir, Helvetica Neue, Arial, Helvetica, sans-serif;
-      vertical-align: middle;
-    }
   }
 
   &.collapse {
