@@ -1,9 +1,10 @@
 <template>
   <div class="login-container">
+    <img class="login-bg" src="../../assets/images/login_bg.png" alt="">
     <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form" auto-complete="on" label-position="left">
 
       <div class="title-container">
-        <h3 class="title">Login Form</h3>
+        <h3 class="title">临时工小東欢迎你</h3>
       </div>
 
       <el-form-item prop="username">
@@ -42,13 +43,17 @@
       </el-form-item>
 
       <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="handleLogin">Login</el-button>
-
-      <div class="tips">
-        <span style="margin-right:20px;">username: admin</span>
-        <span> password: any</span>
-      </div>
-
     </el-form>
+
+    <div class="wrapper">
+      <i class="nes-mario" />
+      <i class="nes-ash" />
+      <i class="nes-pokeball" />
+      <i class="nes-bulbasaur" />
+      <i class="nes-charmander" />
+      <i class="nes-squirtle" />
+      <i class="nes-kirby" />
+    </div>
   </div>
 </template>
 
@@ -182,6 +187,26 @@ $light_gray:#eee;
   width: 100%;
   background-color: $bg;
   overflow: hidden;
+
+  .login-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(5px);
+  }
+
+  .wrapper {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+  }
 
   .login-form {
     position: relative;

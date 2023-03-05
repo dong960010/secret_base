@@ -1,8 +1,9 @@
 <template>
   <div class="navbar">
-    <hamburger :is-active="sidebar.opened" class="hamburger-container" @toggleClick="toggleSideBar" />
-
-    <breadcrumb class="breadcrumb-container" />
+    <div class="left-menu">
+      <hamburger :is-active="sidebar.opened" class="hamburger-container" @toggleClick="toggleSideBar" />
+      <breadcrumb class="breadcrumb-container" />
+    </div>
 
     <div class="right-menu">
       <el-dropdown class="avatar-container" trigger="click">
@@ -61,16 +62,23 @@ export default {
 
 <style lang="scss" scoped>
 .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   height: 50px;
   overflow: hidden;
   position: relative;
   background: #fff;
   box-shadow: 0 1px 4px rgba(0,21,41,.08);
 
+  .left-menu {
+    display: flex;
+    align-items: center;
+  }
+
   .hamburger-container {
     line-height: 46px;
     height: 100%;
-    float: left;
     cursor: pointer;
     transition: background .3s;
     -webkit-tap-highlight-color:transparent;
@@ -80,14 +88,10 @@ export default {
     }
   }
 
-  .breadcrumb-container {
-    float: left;
-  }
-
   .right-menu {
-    float: right;
+    display: flex;
+    align-items: center;
     height: 100%;
-    line-height: 50px;
 
     &:focus {
       outline: none;
@@ -115,7 +119,6 @@ export default {
       margin-right: 30px;
 
       .avatar-wrapper {
-        margin-top: 5px;
         position: relative;
 
         .user-avatar {
@@ -131,6 +134,9 @@ export default {
           right: -20px;
           top: 25px;
           font-size: 12px;
+          &::before {
+            content: '';
+          }
         }
       }
     }
