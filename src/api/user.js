@@ -1,10 +1,10 @@
 import request from '@/utils/request'
 
-export function login(data) {
+export function login(params) {
   return request({
-    url: '/vue-admin-template/user/login',
+    url: '/user/login',
     method: 'post',
-    data
+    params
   })
 }
 
@@ -20,5 +20,13 @@ export function logout() {
   return request({
     url: '/vue-admin-template/user/logout',
     method: 'post'
+  })
+}
+
+export function getUserInfo(params) {
+  return request({
+    url: '/getUserInfo',
+    method: 'get',
+    params
   })
 }

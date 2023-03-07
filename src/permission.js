@@ -14,7 +14,7 @@ router.beforeEach(async(to, from, next) => {
   NProgress.start()
 
   // set page title
-  document.title = '临时工小東的秘密基地'
+  document.title = 'vue&node'
 
   // determine whether the user has logged in
   const hasToken = getToken()
@@ -26,13 +26,15 @@ router.beforeEach(async(to, from, next) => {
       NProgress.done()
     } else {
       const hasGetUserInfo = store.getters.name
+      console.log(hasGetUserInfo, 'hasGetUserInfo')
       if (hasGetUserInfo) {
         next()
       } else {
         try {
           // get user info
-          const { roles } = await store.dispatch('user/getInfo')
-          const addRoutes = await store.dispatch('permission/generateRoutes', roles)
+          const { role } = await store.dispatch('user/getInfo')
+          console.log(role)
+          const addRoutes = await store.dispatch('permission/generateRoutes', role)
           router.addRoutes(addRoutes)
 
           next({ ...to, replace: true })

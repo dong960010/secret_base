@@ -32,6 +32,16 @@ module.exports = {
   devServer: {
     port: port,
     open: true,
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3000', // 设置调用的接口域名和端口号（默认端口号80）
+        secure: false, // 如果是https接口，需要设置这个参数
+        changeOrigin: true, // 如果接口跨域，需要配置这个参数
+        pathRewrite: {
+          '^/api': ''
+        }
+      }
+    },
     overlay: {
       warnings: false,
       errors: true
@@ -79,6 +89,18 @@ module.exports = {
         symbolId: 'icon-[name]'
       })
       .end()
+    // config.module
+    //   .rule('js')
+    //   .test(/\.(js|jsx)$/)
+    //   .include
+    //   .add(/node_modules\/(parse5|htmlparser2)/)
+    //   .end()
+    //   .use('babel-loader')
+    //   .loader('babel-loader')
+    //   .options({
+    //     presets: ['@babel/preset-env']
+    //   })
+    //   .end()
 
     config
       .when(process.env.NODE_ENV !== 'development',
