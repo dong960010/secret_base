@@ -14,7 +14,11 @@ router.beforeEach(async(to, from, next) => {
   NProgress.start()
 
   // set page title
+<<<<<<< HEAD
   document.title = 'vue&node'
+=======
+  document.title = 'Secret_Base'
+>>>>>>> 8798d70fa9a867399577ac888e126bef008a6bfa
 
   // determine whether the user has logged in
   const hasToken = getToken()

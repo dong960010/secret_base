@@ -6,7 +6,11 @@
 </template>
 
 <script>
+<<<<<<< HEAD
 import { getUserInfo } from '@/api/user'
+=======
+
+>>>>>>> 8798d70fa9a867399577ac888e126bef008a6bfa
 export default {
   name: 'Reminder',
   data() {
@@ -43,6 +47,7 @@ export default {
       oneUrl: 'http://wufazhuce.com/',
       weatherUrl: `https://tianqi.moji.com/weather/china/${this.local}`
     })
+<<<<<<< HEAD
   },
   methods: {
     async getUserInfo() {
@@ -53,6 +58,8 @@ export default {
       console.log('---start task ---')
       this.getUserInfo()
     }
+=======
+>>>>>>> 8798d70fa9a867399577ac888e126bef008a6bfa
   }
 }
 </script>

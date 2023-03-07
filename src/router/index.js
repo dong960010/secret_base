@@ -183,6 +183,17 @@ export const asyncRoutes = [
       component: () => import('@/views/memo-reminder/Index'),
       meta: { title: '备忘提醒', icon: 'el-icon-time' }
     }]
+  },
+
+  {
+    path: '/technical-summary',
+    component: Layout,
+    children: [{
+      path: 'index',
+      name: 'TechnicalSummary',
+      component: () => import('@/views/technical-summary/Index'),
+      meta: { title: '技术汇总', icon: 'el-icon-suitcase' }
+    }]
   }
 ]
 
