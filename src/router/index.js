@@ -170,19 +170,29 @@ export const asyncRoutes = [
       path: 'index',
       name: 'IndividualCenter',
       component: () => import('@/views/individual-center/Index'),
-      meta: { title: '个人中心', icon: 'el-icon-time' }
+      meta: { title: '个人中心', icon: '' }
     }]
   },
 
   {
     path: '/memo-reminder',
     component: Layout,
-    hidden: true,
     children: [{
       path: 'index',
       name: 'MemoReminder',
       component: () => import('@/views/memo-reminder/Index'),
-      meta: { title: '备忘提醒', icon: '' }
+      meta: { title: '备忘提醒', icon: 'el-icon-time' }
+    }]
+  },
+
+  {
+    path: '/technical-summary',
+    component: Layout,
+    children: [{
+      path: 'index',
+      name: 'TechnicalSummary',
+      component: () => import('@/views/technical-summary/Index'),
+      meta: { title: '技术汇总', icon: 'el-icon-suitcase' }
     }]
   }
 ]
